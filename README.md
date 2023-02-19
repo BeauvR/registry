@@ -77,11 +77,12 @@ $ php artisan migrate
 The docker configuration in this project is not production ready. It is only used for development.
 
 ## Usage
-### Note
-This project is still in development, a web interface. For now, you can only add packages & licenses to the database directly.
 
 ### Adding a composer package
-To add a package, you need to create a new package in the database table ``composer_packages``
+To add a package, you can use the following command:
+```bash
+$ php artisan create:composer-package
+```
 
 ### Adding a composer package version
 To create a new version of a package, you need to call a webhook. This webhook is located at ``https://yourdomain.com/composer/composer-package-update``. This webhook must be singed as described here and accepts a POST request with the following parameters:
@@ -92,9 +93,16 @@ To create a new version of a package, you need to call a webhook. This webhook i
 After calling this webhook with the correct parameters, there will be a job queued that will create a new version of the package. This job will be processed by the queue worker.
 
 ### Issuing a license
-To issue a license, you need to create a new license in the database table ``licenses``.
-This license must contain a username and password. The password is hashed using the ``bcrypt`` function of PHP.
-The license must be linked to a composer package. This can be done by creating a new row in the database table ``composer_package_license``.
+To issue a license, you can use the following command:
+```bash
+$ php artisan create:license
+```
+
+### Linking a license to a composer package
+To link a license to a composer package, you can use the following command:
+```bash
+$ php artisan link:license-to-composer-package
+```
 
 ### Adding the composer repository to your composer.json of the project where you want to use the package
 ```json
