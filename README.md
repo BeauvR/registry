@@ -71,6 +71,9 @@ Run database migrations so that we can store things:
 $ php artisan migrate
 ```
 
+### Note
+The docker configuration in this project is not production ready. It is only used for development.
+
 ## Usage
 ### Note
 This project is still in development, a web interface and webhooks are not yet implemented. For now, you can only add packages and versions to the database directly.
