@@ -143,5 +143,4 @@ $ ./vendor/bin/sail test
 
 ## Planned features
 * Web interface.
-* Webhooks.
 * NPM registry.
