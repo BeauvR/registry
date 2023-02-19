@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-    <a href="https://github.com/BeauvR/registery/blob/master/LICENSE.md" target="blank">
+    <a href="https://github.com/BeauvR/registery/blob/main/LICENSE.md" target="blank">
         <img src="https://img.shields.io/github/license/EBeauvR/registery" alt="GitHub">
     </a>
     <a href="https://github.com/BeauvR/registery/pulls" target="blank">
@@ -29,7 +29,7 @@ See [#contributing](#Contributing) for more details on how you can help improvin
 * Easy to install.
 
 ## License
-Please refer to [LICENSE.md](https://github.com/BeauvR/registery/blob/master/LICENSE.md) for this project's license.
+Please refer to [LICENSE.md](https://github.com/BeauvR/registery/blob/main/LICENSE.md) for this project's license.
 
 ## Contributors
 This list only contains some of the most notable contributors. For the full list, refer to [GitHub's contributors graph](https://github.com/BeauvR/registery/graphs/contributors).
