@@ -12,7 +12,10 @@ Route::get('/composerPackage/{composerPackage:name}{dev?}', [ComposerPackageVers
     ->name('composerPackage.show')
     ->where('composerPackage', '([^\/]*\/.[^\/~]*)')
     ->where('dev', '(~dev)');
+
+Route::webhooks('composer-package-update', 'composer-package-update');
+
 Route::get('/composerPackage/{composerPackage:name}/{composerPackageVersion:version_code}/download', ComposerPackageVersionDownloadController::class)
     ->name('composerPackage.composerPackageVersion.download')
     ->where('composerPackage', '([^\/]*\/.[^\/~]*)')
-    ->middleware('guard:composer','auth.basic:composer,username', 'can:download,composerPackage');
+    ->middleware('guard:license','auth.basic:license,username', 'can:download,composerPackage');

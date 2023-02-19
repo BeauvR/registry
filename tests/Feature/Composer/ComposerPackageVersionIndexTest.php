@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Composer;
 
+use App\Enums\ComposerPackageVersionStatus;
 use App\Enums\ComposerPackageVersionType;
 use App\Models\ComposerPackage;
 use App\Models\ComposerPackageVersion;
@@ -190,7 +191,7 @@ class ComposerPackageVersionIndexTest extends TestCase
                             ->has('0', fn (AssertableJson $packageVersion) => $packageVersion
                                 ->where('name', $composerPackageVersion->composerPackage->name)
                                 ->where('version', $composerPackageVersion->version_code)
-                                ->where('version_normalized', $composerPackageVersion->version_code)
+                                ->where('version_normalized', $composerPackageVersion->normalized_version)
                                 ->where('type', 'library')
                                 ->where('time', $composerPackageVersion->created_at->toIso8601String())
                                 ->where('extra', $composerPackageVersion->composer_json_content['extra'])
@@ -257,6 +258,42 @@ class ComposerPackageVersionIndexTest extends TestCase
                                 )
                                 ->etc(),
                             ),
+                    ),
+                ));
+    }
+
+    public function test_only_ready_versions_are_returned(): void
+    {
+        $composerPackage = ComposerPackage::factory()
+            ->create();
+
+        $composerPackageVersion1 = ComposerPackageVersion::factory()
+            ->state([
+                'version_type' => ComposerPackageVersionType::STABLE,
+                'version_code' => '1.0.0',
+                'status' => ComposerPackageVersionStatus::READY,
+            ])
+            ->for($composerPackage)
+            ->create();
+
+        ComposerPackageVersion::factory()
+            ->state([
+                'version_type' => ComposerPackageVersionType::STABLE,
+                'version_code' => '2.0.0',
+                'status' => ComposerPackageVersionStatus::DRAFT,
+            ])
+            ->for($composerPackage)
+            ->create();
+
+        $this->getJson(route('composer.composerPackage.show', [$composerPackage->name]))
+            ->assertOk()
+            ->assertJson(fn (AssertableJson $json) => $json
+                ->has('packages', fn (AssertableJson $packages) => $packages
+                    ->has($composerPackage->name, fn (AssertableJson $packageVersions) => $packageVersions
+                        ->has('0', fn (AssertableJson $packageVersion) => $packageVersion
+                            ->where('version', $composerPackageVersion1->version_code)
+                            ->etc(),
+                        ),
                     ),
                 ));
     }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\ComposerPackageVersionStatus;
 use App\Enums\ComposerPackageVersionType;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -15,6 +16,7 @@ class ComposerPackageVersion extends Model
 
     public $fillable = [
         'composer_package_id',
+        'status',
         'version_code',
         'version_type',
         'source_reference',
@@ -24,6 +26,8 @@ class ComposerPackageVersion extends Model
     ];
 
     public $casts = [
+        'status' => ComposerPackageVersionStatus::class,
+        'version_type' => ComposerPackageVersionType::class,
         'composer_json_content' => 'array',
     ];
 

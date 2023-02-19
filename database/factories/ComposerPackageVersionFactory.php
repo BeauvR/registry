@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\ComposerPackageVersionStatus;
 use App\Models\ComposerPackage;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -20,7 +21,7 @@ class ComposerPackageVersionFactory extends Factory
     {
         return [
             'composer_package_id' => ComposerPackage::factory(),
-            'version_code' => random_int(0, 5) .'.'. random_int(0,5) .'.'. random_int(0,5),
+            'version_code' => random_int(0, 5) . '.' . random_int(0, 5) . '.' . random_int(0, 5),
             'version_type' => $this->faker->randomElement(['dev', 'stable']),
             'source_reference' => $this->faker->uuid(),
             'storage_path' => $this->faker->filePath(),
@@ -28,6 +29,7 @@ class ComposerPackageVersionFactory extends Factory
             'composer_json_content' => [
                 'name' => $this->faker->word() . '/' . $this->faker->word(),
             ],
+            'status' => ComposerPackageVersionStatus::READY,
         ];
     }
 }

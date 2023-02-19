@@ -44,6 +44,8 @@ This list only contains some of the most notable contributors. For the full list
 * A domain name.
 * A SSL certificate.
 * A storage server (S3, etc).
+* PHP zip extension.
+* Git installed.
 
 ### Installation
 Grab yourself a copy of this repository:
@@ -76,16 +78,18 @@ The docker configuration in this project is not production ready. It is only use
 
 ## Usage
 ### Note
-This project is still in development, a web interface and webhooks are not yet implemented. For now, you can only add packages and versions to the database directly.
+This project is still in development, a web interface. For now, you can only add packages & licenses to the database directly.
 
 ### Adding a composer package
 To add a package, you need to create a new package in the database table ``composer_packages``
 
 ### Adding a composer package version
-To add a version, you need to create a new version in the database table ``composer_package_versions``. 
-This version must be linked to a composer package. 
-The version type must be a valid composer version type (``stable``, ``dev``).
-The composer_json_content field must contain the whole package.json file of the package version.
+To create a new version of a package, you need to call a webhook. This webhook is located at ``https://yourdomain.com/composer/composer-package-update``. This webhook must be singed as described here and accepts a POST request with the following parameters:
+* ``version_code``: The version code of the new release.
+* ``version_type``: The version type of the new release. This can be ``stable``, ``dev``.
+* ``source_reference``: The source reference of the new release. This must be a valid git reference. This can be a branch, tag or commit hash.
+* ``composer_package_id``: The ID of the composer package that you want to add a new version to.
+After calling this webhook with the correct parameters, there will be a job queued that will create a new version of the package. This job will be processed by the queue worker.
 
 ### Issuing a license
 To issue a license, you need to create a new license in the database table ``licenses``.
@@ -102,6 +106,12 @@ The license must be linked to a composer package. This can be done by creating a
         }
     ]
 }
+```
+
+### Signing the webhook
+To sign the webhook, you need to set the ``COMPOSER_WEBHOOK_SECRET`` environment variable to a random string. This string will be used to sign the webhook. The webhook will be signed using the ``HMAC-SHA256`` algorithm. The signature should be created for the whole body of the request and should be sent in the `signature` header. You can create a signature with the following code:
+```PHP
+$computedSignature = hash_hmac('sha256', $request->getContent(), $configuredSigningSecret);
 ```
 
 ## Contributing
