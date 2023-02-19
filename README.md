@@ -1,66 +1,126 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<h1 align="center">
+    Private registery (composer)
+</h1>
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+    <a href="https://github.com/BeauvR/registery/blob/master/LICENSE.md" target="blank">
+        <img src="https://img.shields.io/github/license/EBeauvR/registery" alt="GitHub">
+    </a>
+    <a href="https://github.com/BeauvR/registery/pulls" target="blank">
+        <img src="https://img.shields.io/github/issues-pr/BeauvR/registery" alt="GitHub pull requests">
+    </a>
+    <a href="https://github.com/BeauvR/registery/issues" target="blank">
+        <img src="https://img.shields.io/github/issues/BeauvR/registery" alt="GitHub issues">
+    </a>
 </p>
 
-## About Laravel
+<hr>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<strong>Free and open source.</strong>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+> A private registery for composer with licensing support. Written in PHP using [Laravel Framework](https://laravel.com/).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+See [#contributing](#Contributing) for more details on how you can help improving this project. We're always down to improve and receive feedback.
 
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Features
+* A private registery for composer.
+* Licensing support.
+* Easy to use.
+* Easy to install.
 
 ## License
+Please refer to [LICENSE.md](https://github.com/BeauvR/registery/blob/master/LICENSE.md) for this project's license.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Contributors
+This list only contains some of the most notable contributors. For the full list, refer to [GitHub's contributors graph](https://github.com/BeauvR/registery/graphs/contributors).
+* [BeauvR](https://github.com/BeauvR) (Beau) - creator and maintainer .
+
+## Setup
+### Prerequisites
+* PHP 8.2+.
+* Composer.
+* SQL (database).
+* A webserver (Apache, Nginx, etc).
+* A domain name.
+* A SSL certificate.
+* A storage server (S3, etc).
+
+### Installation
+Grab yourself a copy of this repository:
+```bash
+$ git clone
+```
+
+Install all the required dependencies (we use composer):
+```bash
+$ composer install
+```
+
+Create a new file called ``.env`` and copy the contents from ``.env.example`` over to it, then apply your configurations.
+```bash
+$ cp .env.example .env
+```
+
+Create a private and unique application key:
+```bash
+$ php artisan key:generate
+```
+
+Run database migrations so that we can store things:
+```bash
+$ php artisan migrate
+```
+
+## Usage
+### Note
+This project is still in development, a web interface and webhooks are not yet implemented. For now, you can only add packages and versions to the database directly.
+
+### Adding a composer package
+To add a package, you need to create a new package in the database table ``composer_packages``
+
+### Adding a composer package version
+To add a version, you need to create a new version in the database table ``composer_package_versions``. 
+This version must be linked to a composer package. 
+The version type must be a valid composer version type (``stable``, ``dev``).
+The composer_json_content field must contain the whole package.json file of the package version.
+
+### Issuing a license
+To issue a license, you need to create a new license in the database table ``licenses``.
+This license must contain a username and password. The password is hashed using the ``bcrypt`` function of PHP.
+The license must be linked to a composer package. This can be done by creating a new row in the database table ``composer_package_license``.
+
+### Adding the composer repository to your composer.json of the project where you want to use the package
+```json
+{
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://yourdomain.com/composer"
+        }
+    ]
+}
+```
+
+## Contributing
+This section describes how you can help contribute. We're always down to improve and receive feedback.
+First off, thank you for considering contributing to this project. It's people like you that make this project possible.
+
+### Setup 
+Follow the [setup](#Setup) instructions to get started.
+
+### Development
+We use Laravel Sail for development. You can use it to run the project locally. 
+```bash
+$ ./vendor/bin/sail up
+```
+
+### Testing
+We use PHPUnit for testing. You can run the tests using the following command:
+```bash
+$ ./vendor/bin/sail test
+```
+
+## Planned features
+* Web interface.
+* Webhooks.
+* NPM registry.
