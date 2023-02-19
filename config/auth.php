@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'composer' => [
+            'driver' => 'session',
+            'provider' => 'licenses',
+        ],
     ],
 
     /*
@@ -63,6 +67,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+
+        'licenses' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\License::class,
         ],
 
         // 'users' => [
