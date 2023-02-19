@@ -4,7 +4,7 @@
 
 <p align="center">
     <a href="https://github.com/BeauvR/registery/blob/main/LICENSE.md" target="blank">
-        <img src="https://img.shields.io/github/license/EBeauvR/registery" alt="GitHub">
+        <img src="https://img.shields.io/github/license/BeauvR/registery" alt="GitHub">
     </a>
     <a href="https://github.com/BeauvR/registery/pulls" target="blank">
         <img src="https://img.shields.io/github/issues-pr/BeauvR/registery" alt="GitHub pull requests">
