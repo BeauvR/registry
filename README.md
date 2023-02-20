@@ -3,14 +3,14 @@
 </h1>
 
 <p align="center">
-    <a href="https://github.com/BeauvR/registery/blob/main/LICENSE.md" target="blank">
-        <img src="https://img.shields.io/github/license/BeauvR/registery" alt="GitHub">
+    <a href="https://github.com/BeauvR/registry/blob/main/LICENSE.md" target="blank">
+        <img src="https://img.shields.io/github/license/BeauvR/registry" alt="GitHub">
     </a>
-    <a href="https://github.com/BeauvR/registery/pulls" target="blank">
-        <img src="https://img.shields.io/github/issues-pr/BeauvR/registery" alt="GitHub pull requests">
+    <a href="https://github.com/BeauvR/registry/pulls" target="blank">
+        <img src="https://img.shields.io/github/issues-pr/BeauvR/registry" alt="GitHub pull requests">
     </a>
-    <a href="https://github.com/BeauvR/registery/issues" target="blank">
-        <img src="https://img.shields.io/github/issues/BeauvR/registery" alt="GitHub issues">
+    <a href="https://github.com/BeauvR/registry/issues" target="blank">
+        <img src="https://img.shields.io/github/issues/BeauvR/registry" alt="GitHub issues">
     </a>
 </p>
 
@@ -29,10 +29,10 @@ See [#contributing](#Contributing) for more details on how you can help improvin
 * Easy to install.
 
 ## License
-Please refer to [LICENSE.md](https://github.com/BeauvR/registery/blob/main/LICENSE.md) for this project's license.
+Please refer to [LICENSE.md](https://github.com/BeauvR/registry/blob/main/LICENSE.md) for this project's license.
 
 ## Contributors
-This list only contains some of the most notable contributors. For the full list, refer to [GitHub's contributors graph](https://github.com/BeauvR/registery/graphs/contributors).
+This list only contains some of the most notable contributors. For the full list, refer to [GitHub's contributors graph](https://github.com/BeauvR/registry/graphs/contributors).
 * [BeauvR](https://github.com/BeauvR) (Beau) - creator and maintainer .
 
 ## Setup
