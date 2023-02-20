@@ -1,5 +1,5 @@
 <h1 align="center">
-    Private registery (composer)
+    Private registry (composer)
 </h1>
 
 <p align="center">
@@ -18,12 +18,12 @@
 
 <strong>Free and open source.</strong>
 
-> A private registery for composer with licensing support. Written in PHP using [Laravel Framework](https://laravel.com/).
+> A private registry for composer with licensing support. Written in PHP using [Laravel Framework](https://laravel.com/).
 
 See [#contributing](#Contributing) for more details on how you can help improving this project. We're always down to improve and receive feedback.
 
 ## Features
-* A private registery for composer.
+* A private registry for composer.
 * Licensing support.
 * Easy to use.
 * Easy to install.
