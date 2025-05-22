@@ -36,6 +36,11 @@ class RouteServiceProvider extends ServiceProvider
                 ->name('composer.')
                 ->group(base_path('routes/composer.php'));
 
+            Route::middleware('api')
+                ->prefix('npm')
+                ->name('npm.')
+                ->group(base_path('routes/npm.php'));
+
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
         });
